@@ -6,6 +6,16 @@ jobs:
   say-hello:
     runs-on: ubuntu-latest
 
+    env: 
+      GLOBAL_NAME: "Akshat"
+
     steps: 
-      - name: Print Greeting
-        run: echo "Hello World!"
+      - name: Step - 1
+        run: echo $GLOBAL_NAME
+
+      - name: Step - 2
+        id: greet_step
+        run: echo "message=You pushed this code" >> GITHUB_OUTPUT
+
+      - name: Step - 3
+        run: echo "Message from previous step: ${{ steps.greet_step.outputs.message }}"
