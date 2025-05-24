@@ -33,7 +33,7 @@ jobs:
       - name: Auto Comment By External Actions
         uses: peter-evans/create-or-update-comment@v4
         with: 
-          issue_number: ${{ github.event.issue.number }}
+          issue-number: ${{ github.event.issue.number }}
           body: |
             👋 **Thanks for opening this issue!**
 
