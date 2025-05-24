@@ -6,7 +6,7 @@ on:
 
 permissions: 
   issues: write
-  
+
 jobs:
   comment:
     runs-on: ubuntu-latest
@@ -18,7 +18,7 @@ jobs:
           script: |
             console.log(context)
 
-      - name: Auto comment
+      - name: Auto comment Using Github API
         uses: actions/github-script@v6
         with:
           script: |
@@ -28,3 +28,13 @@ jobs:
               repo: context.repo.repo,
               body: "Thanks for opening the issue, we will look into it!"
             })
+
+
+      - name: Auto Comment By External Actions
+        uses: peter-evans/create-or-update-comment@v4
+        with: 
+          issue_number: ${{ github.event.issue.number }}
+          body: |
+            👋 **Thanks for opening this issue!**
+
+            We'll get back to you as soon as possible.
