@@ -50,7 +50,7 @@ jobs:
 
         with: 
           issue-number: ${{ github.event.pull_request.number }}
-          
+          token: ${{ secrets.PAT }}
           body: |
             ❌ **Automated Test Failed!**
             Please fix the test errors before merging.
