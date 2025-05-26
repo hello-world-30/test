@@ -28,6 +28,9 @@ jobs:
 
       - name: Run lint (Mock)
         run: npm run lint
-
+      
+      - name: Run tests
+        run: npm test
+        
       - name: Run app
         run: npm run start
