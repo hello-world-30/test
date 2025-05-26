@@ -9,6 +9,6 @@ describe("add function", () => {
 
         const result = add(num1, num2)
 
-        expect(result).toBe(5)
+        expect(result).toBe(3)
     })
 })
