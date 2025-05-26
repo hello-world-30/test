@@ -34,3 +34,21 @@ jobs:
         
       - name: Run app
         run: npm run start
+
+
+  comment-on-failure: 
+    needs: build
+    if: ${{ failure() && github.event_name == 'pull_request'}}
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Comment if PR fails
+        uses: peter-evans/create-or-update-comment@v4
+
+        with: 
+          issue-number: ${{ github.event.pull_request.number }}
+          
+          body: |
+            ❌ **Automated Test Failed!**
+            Please fix the test errors before merging.
